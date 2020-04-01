@@ -33,7 +33,7 @@ function storeInDictionary() {
 #function to store dada dictionary into array
 function storeInArray() {
 
-	for(( j=1; j<=4; j++))
+	for(( j=1; j<5; j++))
 	do
 		dicToArray[$j]=${arithmaticExpression[result$j]}
 	done
@@ -45,7 +45,17 @@ function sortInDecending() {
 
 echo "Sort in Decending order: " 
 
-	for(( j=1; j<=4; j++))
+	for(( j=1; j<5; j++))
+	do
+		echo ${dicToArray[$j]}
+	done | sort $1
+
+}
+
+#function to sort array in ascending order
+function sortInAscending() {
+
+	for(( j=1; j<5; j++ ))
 	do
 		echo ${dicToArray[$j]}
 	done | sort $1
@@ -61,6 +71,7 @@ function arithmaticSortingComputation() {
 	storeInDictionary
 	storeInArray
 	sortInDecending -rn
+	sortInAscending -n
 }
 
 read -p "Enter the number a b and c: " a b c
