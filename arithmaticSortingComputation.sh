@@ -1,4 +1,5 @@
 #! /bin/bash -x
 
-echo "Enter the Numbers a, b and c"
-read a b c
+read -p "Enter the Numbers a, b and c: " a b c
+addMulti=$(( ($a + $b) * $c))
+echo $addMulti
