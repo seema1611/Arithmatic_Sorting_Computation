@@ -1,7 +1,10 @@
 #! /bin/bash -x
 
+#Declaration of dictionary
+declare -A arithmaticExpression
+
 #Declaration of array
-declare -a arithmaticExpression
+declare -a dicToArray
 
 function getAddMulti() {
 
@@ -26,11 +29,21 @@ function getModAdd() {
 #function to store data in dictionary
 function storeInDictionary() {
 
-	for(( i=1; i<5; i++ ))
+	arithmaticExpression[result1]=$output1
+	arithmaticExpression[result2]=$output2
+	arithmaticExpression[result3]=$output3
+	arithmaticExpression[result4]=$output4
+
+}
+
+#function to store dada dictionary into array
+function storeInArray() {
+
+	for(( j=1; j<5; j++))
 	do
-		arithmaticExpression[result$i]=$((output$i))
-		echo [result$i]=$arithmaticExpression
+		dicToArray[$j]=${arithmaticExpression[result$j]}
 	done
+
 }
 
 #calling function
@@ -41,6 +54,7 @@ function arithmaticSortingComputation() {
 	getAddDiv
 	getModAdd
 	storeInDictionary
+	storeInArray
 
 }
 
